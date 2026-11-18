@@ -1,0 +1,6 @@
+# Keep the voice packs tracked; ignore local test renders.
+*.wav
+*.onnx
+*.onnx.json
+__pycache__/
+.DS_Store
