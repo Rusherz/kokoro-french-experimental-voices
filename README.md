@@ -6,10 +6,10 @@ Experimental Kokoro-compatible French voice packs. These are plain PyTorch `.pt`
 
 ## Included voices
 
-- `ff_tom_experiment`
-- `ff_gilleslow_experiment`
-- `ff_mlsmedium_experiment`
-- `ff_mls1840low_experiment`
+- `fm_tom_experiment`
+- `fm_gilleslow_experiment`
+- `fm_mlsmedium_experiment`
+- `fm_mls1840low_experiment`
 - `ff_siwislow_experiment`
 - `ff_siwismedium_experiment`
 - `ff_upmcmedium_experiment`
@@ -19,7 +19,7 @@ Experimental Kokoro-compatible French voice packs. These are plain PyTorch `.pt`
 Copy one or more packs into the container's voices directory, then restart it:
 
 ```sh
-docker cp voices/ff_tom_experiment.pt <container>:/app/api/src/voices/v1_0/
+docker cp voices/fm_tom_experiment.pt <container>:/app/api/src/voices/v1_0/
 docker restart <container>
 ```
 
@@ -29,12 +29,12 @@ Or bind-mount each pack in Compose:
 services:
   kokoro:
     volumes:
-      - ./voices/ff_tom_experiment.pt:/app/api/src/voices/v1_0/ff_tom_experiment.pt:ro
+      - ./voices/fm_tom_experiment.pt:/app/api/src/voices/v1_0/fm_tom_experiment.pt:ro
 ```
 
-The API exposes it after startup as `ff_tom_experiment` (the filename without `.pt`). Use that identifier in the web player or speech requests.
+The API exposes it after startup as `fm_tom_experiment` (the filename without `.pt`). Use that identifier in the web player or speech requests.
 
-Keep the `ff_` prefix, which selects Kokoro's French pipeline. Do not put hyphens in a filename; Kokoro-FastAPI interprets them as voice-mixing separators.
+Use `fm_` for male-reading French voices and `ff_` for female-reading French voices. The first `f` selects Kokoro's French pipeline. Do not put hyphens in a filename; Kokoro-FastAPI interprets them as voice-mixing separators.
 
 ## Layout
 
